@@ -59,6 +59,11 @@ export default class JevApp extends App<JevApp> {
     #registerActions(): void {
         this.registry.action(Actions.Advanced);
         this.registry.action(Actions.ChoiceList);
+        this.registry.action(Actions.ImageAdvanced);
+        this.registry.action(Actions.ImageChoiceList);
+        this.registry.action(Actions.ImageLocate);
+        this.registry.action(Actions.ImageScore);
+        this.registry.action(Actions.ImageYesNo);
         this.registry.action(Actions.Score);
         this.registry.action(Actions.YesNo);
     }

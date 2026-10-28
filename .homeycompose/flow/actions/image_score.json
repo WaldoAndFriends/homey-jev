@@ -1,0 +1,306 @@
+{
+  "title": {
+    "en": "Score an image with 3 levels",
+    "nl": "Beoordeel een afbeelding met 3 niveaus",
+    "de": "Ein Bild mit 3 Stufen bewerten",
+    "fr": "Évaluer une image sur 3 niveaux",
+    "es": "Puntuar una imagen con 3 niveles",
+    "da": "Vurder et billede med 3 niveauer",
+    "no": "Vurder et bilde med 3 nivåer",
+    "sv": "Bedöm en bild med 3 nivåer",
+    "it": "Valuta un’immagine su 3 livelli",
+    "pl": "Oceń obraz na 3 poziomach",
+    "ru": "Оценить изображение по 3 уровням",
+    "ko": "이미지를 3단계로 평가",
+    "ar": "تقييم صورة على 3 مستويات"
+  },
+  "titleFormatted": {
+    "en": "Score [[question]] about [[droptoken]] with context [[state]] on levels [[low]] / [[middle]] / [[high]] with minimum confidence [[minimum]]",
+    "nl": "Beoordeel [[question]] over [[droptoken]] met context [[state]] op niveaus [[low]] / [[middle]] / [[high]] met minimale confidence [[minimum]]",
+    "de": "[[question]] zu [[droptoken]] mit Kontext [[state]] auf den Stufen [[low]] / [[middle]] / [[high]] mit Mindestkonfidenz [[minimum]] bewerten",
+    "fr": "Évaluer [[question]] sur [[droptoken]] avec le contexte [[state]], les niveaux [[low]] / [[middle]] / [[high]] et une confiance minimale de [[minimum]]",
+    "es": "Puntuar [[question]] sobre [[droptoken]] con contexto [[state]], niveles [[low]] / [[middle]] / [[high]] y confianza mínima [[minimum]]",
+    "da": "Vurder [[question]] om [[droptoken]] med kontekst [[state]] på niveauerne [[low]] / [[middle]] / [[high]] med mindste sikkerhed [[minimum]]",
+    "no": "Vurder [[question]] om [[droptoken]] med kontekst [[state]] på nivåene [[low]] / [[middle]] / [[high]] med minste sikkerhet [[minimum]]",
+    "sv": "Bedöm [[question]] om [[droptoken]] med kontext [[state]] på nivåerna [[low]] / [[middle]] / [[high]] med minsta säkerhet [[minimum]]",
+    "it": "Valuta [[question]] su [[droptoken]] con contesto [[state]], livelli [[low]] / [[middle]] / [[high]] e confidenza minima [[minimum]]",
+    "pl": "Oceń [[question]] o obraz [[droptoken]] z kontekstem [[state]] na poziomach [[low]] / [[middle]] / [[high]] przy minimalnej pewności [[minimum]]",
+    "ru": "Оценить [[question]] по изображению [[droptoken]] с контекстом [[state]] на уровнях [[low]] / [[middle]] / [[high]] с минимальной уверенностью [[minimum]]",
+    "ko": "컨텍스트 [[state]]과 함께 [[droptoken]]의 [[question]]을 [[low]] / [[middle]] / [[high]] 단계로 최소 신뢰도 [[minimum]]으로 평가",
+    "ar": "قيّم [[question]] عن [[droptoken]] مع السياق [[state]] على المستويات [[low]] / [[middle]] / [[high]] بحد أدنى للثقة [[minimum]]"
+  },
+  "hint": {
+    "en": "Drop an image tag and ask one question about it. Context is optional. Describe concrete situations for the low, middle and high levels. Returns a score from 0 to 2, including fractions. A result below the minimum confidence follows the error path. Images are a TypeSafe preview feature.",
+    "nl": "Zet een afbeeldingstag neer en stel er één vraag over. Context is optioneel. Beschrijf concrete situaties voor het lage, middelste en hoge niveau. Geeft een score van 0 tot 2, ook met decimalen. Een resultaat onder de minimale confidence volgt het foutpad. Afbeeldingen zijn een previewfunctie van TypeSafe.",
+    "de": "Lege ein Bild-Tag ab und stelle eine Frage dazu. Kontext ist optional. Beschreibe konkrete Situationen für die niedrige, mittlere und hohe Stufe. Liefert einen Wert von 0 bis 2, auch mit Nachkommastellen. Bei zu geringer Konfidenz wird der Fehlerpfad verwendet. Bilder sind eine Vorschaufunktion von TypeSafe.",
+    "fr": "Déposez un tag image et posez une question à son sujet. Le contexte est facultatif. Décrivez des situations concrètes pour les niveaux bas, moyen et haut. Renvoie un score de 0 à 2, décimales comprises. Une confiance insuffisante déclenche le chemin d’erreur. Les images sont une fonction en préversion de TypeSafe.",
+    "es": "Suelta una etiqueta de imagen y haz una pregunta sobre ella. El contexto es opcional. Describe situaciones concretas para los niveles bajo, medio y alto. Devuelve una puntuación de 0 a 2, con decimales. Una confianza insuficiente activa la ruta de error. Las imágenes son una función en vista previa de TypeSafe.",
+    "da": "Slip et billedtag og stil ét spørgsmål om det. Kontekst er valgfri. Beskriv konkrete situationer for lavt, mellem og højt niveau. Returnerer en score fra 0 til 2 med decimaler. For lav sikkerhed aktiverer fejlstien. Billeder er en previewfunktion i TypeSafe.",
+    "no": "Slipp en bildetagg og still ett spørsmål om det. Kontekst er valgfri. Beskriv konkrete situasjoner for lavt, middels og høyt nivå. Returnerer en poengsum fra 0 til 2 med desimaler. For lav sikkerhet aktiverer feilbanen. Bilder er en forhåndsvisningsfunksjon i TypeSafe.",
+    "sv": "Släpp en bildtagg och ställ en fråga om den. Kontext är valfri. Beskriv konkreta situationer för låg, mellan och hög nivå. Returnerar en poäng från 0 till 2 med decimaler. För låg säkerhet aktiverar felvägen. Bilder är en förhandsfunktion i TypeSafe.",
+    "it": "Inserisci un tag immagine e poni una domanda. Il contesto è facoltativo. Descrivi situazioni concrete per i livelli basso, medio e alto. Restituisce un punteggio da 0 a 2, anche decimale. Una confidenza insufficiente attiva il percorso di errore. Le immagini sono una funzione in anteprima di TypeSafe.",
+    "pl": "Upuść znacznik obrazu i zadaj o nim jedno pytanie. Kontekst jest opcjonalny. Opisz konkretne sytuacje dla poziomu niskiego, średniego i wysokiego. Zwraca ocenę od 0 do 2, również ułamkową. Zbyt niska pewność uruchamia ścieżkę błędu. Obrazy to funkcja testowa TypeSafe.",
+    "ru": "Перетащите тег изображения и задайте один вопрос о нём. Контекст необязателен. Опишите конкретные ситуации для низкого, среднего и высокого уровня. Возвращает оценку от 0 до 2, включая дробные значения. При недостаточной уверенности выполняется ветка ошибки. Изображения — предварительная функция TypeSafe.",
+    "ko": "이미지 태그를 놓고 그에 대해 질문 하나를 하세요. 컨텍스트는 선택 사항입니다. 낮음, 중간, 높음 단계의 구체적인 상황을 설명하세요. 소수를 포함한 0–2 점수를 반환합니다. 신뢰도가 부족하면 오류 경로로 진행합니다. 이미지는 TypeSafe의 미리 보기 기능입니다.",
+    "ar": "أفلت وسم صورة واطرح سؤالًا واحدًا عنها. السياق اختياري. صف مواقف محددة للمستويات المنخفض والمتوسط والمرتفع. يعيد درجة من 0 إلى 2، بما فيها الكسور. إذا كانت الثقة غير كافية، يُتّبع مسار الخطأ. الصور ميزة تجريبية في TypeSafe."
+  },
+  "droptoken": [
+    "image"
+  ],
+  "args": [
+    {
+      "name": "state",
+      "type": "text",
+      "required": false,
+      "title": {
+        "en": "Context (optional)",
+        "nl": "Context (optioneel)",
+        "de": "Kontext (optional)",
+        "fr": "Contexte (facultatif)",
+        "es": "Contexto (opcional)",
+        "da": "Kontekst (valgfri)",
+        "no": "Kontekst (valgfritt)",
+        "sv": "Kontext (valfritt)",
+        "it": "Contesto (facoltativo)",
+        "pl": "Kontekst (opcjonalnie)",
+        "ru": "Контекст (необязательно)",
+        "ko": "컨텍스트 (선택 사항)",
+        "ar": "السياق (اختياري)"
+      }
+    },
+    {
+      "name": "question",
+      "type": "text",
+      "title": {
+        "en": "Question",
+        "nl": "Vraag",
+        "de": "Frage",
+        "fr": "Question",
+        "es": "Pregunta",
+        "da": "Spørgsmål",
+        "no": "Spørsmål",
+        "sv": "Fråga",
+        "it": "Domanda",
+        "pl": "Pytanie",
+        "ru": "Вопрос",
+        "ko": "질문",
+        "ar": "السؤال"
+      }
+    },
+    {
+      "name": "low",
+      "type": "text",
+      "title": {
+        "en": "Low level (0)",
+        "nl": "Laag niveau (0)",
+        "de": "Niedrige Stufe (0)",
+        "fr": "Niveau bas (0)",
+        "es": "Nivel bajo (0)",
+        "da": "Lavt niveau (0)",
+        "no": "Lavt nivå (0)",
+        "sv": "Låg nivå (0)",
+        "it": "Livello basso (0)",
+        "pl": "Niski poziom (0)",
+        "ru": "Низкий уровень (0)",
+        "ko": "낮은 단계 (0)",
+        "ar": "المستوى المنخفض (0)"
+      }
+    },
+    {
+      "name": "middle",
+      "type": "text",
+      "title": {
+        "en": "Middle level (1)",
+        "nl": "Middelste niveau (1)",
+        "de": "Mittlere Stufe (1)",
+        "fr": "Niveau moyen (1)",
+        "es": "Nivel medio (1)",
+        "da": "Mellemste niveau (1)",
+        "no": "Middels nivå (1)",
+        "sv": "Mellannivå (1)",
+        "it": "Livello medio (1)",
+        "pl": "Średni poziom (1)",
+        "ru": "Средний уровень (1)",
+        "ko": "중간 단계 (1)",
+        "ar": "المستوى المتوسط (1)"
+      }
+    },
+    {
+      "name": "high",
+      "type": "text",
+      "title": {
+        "en": "High level (2)",
+        "nl": "Hoog niveau (2)",
+        "de": "Hohe Stufe (2)",
+        "fr": "Niveau élevé (2)",
+        "es": "Nivel alto (2)",
+        "da": "Højt niveau (2)",
+        "no": "Høyt nivå (2)",
+        "sv": "Hög nivå (2)",
+        "it": "Livello alto (2)",
+        "pl": "Wysoki poziom (2)",
+        "ru": "Высокий уровень (2)",
+        "ko": "높은 단계 (2)",
+        "ar": "المستوى المرتفع (2)"
+      }
+    },
+    {
+      "name": "minimum",
+      "type": "number",
+      "title": {
+        "en": "Minimum confidence (0–1)",
+        "nl": "Minimale confidence (0–1)",
+        "de": "Mindestkonfidenz (0–1)",
+        "fr": "Confiance minimale (0–1)",
+        "es": "Confianza mínima (0–1)",
+        "da": "Mindste sikkerhed (0–1)",
+        "no": "Minste sikkerhet (0–1)",
+        "sv": "Minsta säkerhet (0–1)",
+        "it": "Confidenza minima (0–1)",
+        "pl": "Minimalna pewność (0–1)",
+        "ru": "Минимальная уверенность (0–1)",
+        "ko": "최소 신뢰도 (0–1)",
+        "ar": "الحد الأدنى للثقة (0–1)"
+      },
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.8
+    }
+  ],
+  "tokens": [
+    {
+      "name": "score",
+      "type": "number",
+      "title": {
+        "en": "Score (0–2)",
+        "nl": "Score (0–2)",
+        "de": "Bewertung (0–2)",
+        "fr": "Score (0–2)",
+        "es": "Puntuación (0–2)",
+        "da": "Score (0–2)",
+        "no": "Poengsum (0–2)",
+        "sv": "Poäng (0–2)",
+        "it": "Punteggio (0–2)",
+        "pl": "Ocena (0–2)",
+        "ru": "Оценка (0–2)",
+        "ko": "점수 (0–2)",
+        "ar": "الدرجة (0–2)"
+      }
+    },
+    {
+      "name": "confidence",
+      "type": "number",
+      "title": {
+        "en": "Confidence",
+        "nl": "Confidence",
+        "de": "Konfidenz",
+        "fr": "Confiance",
+        "es": "Confianza",
+        "da": "Sikkerhed",
+        "no": "Sikkerhet",
+        "sv": "Säkerhet",
+        "it": "Confidenza",
+        "pl": "Pewność",
+        "ru": "Уверенность",
+        "ko": "신뢰도",
+        "ar": "الثقة"
+      }
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "title": {
+        "en": "Model",
+        "nl": "Model",
+        "de": "Modell",
+        "fr": "Modèle",
+        "es": "Modelo",
+        "da": "Model",
+        "no": "Modell",
+        "sv": "Modell",
+        "it": "Modello",
+        "pl": "Model",
+        "ru": "Модель",
+        "ko": "모델",
+        "ar": "النموذج"
+      }
+    },
+    {
+      "name": "input_tokens",
+      "type": "number",
+      "title": {
+        "en": "Input tokens",
+        "nl": "Inputtokens",
+        "de": "Eingabetokens",
+        "fr": "Tokens en entrée",
+        "es": "Tokens de entrada",
+        "da": "Inputtokens",
+        "no": "Inndatatokener",
+        "sv": "Indatatoken",
+        "it": "Token di input",
+        "pl": "Tokeny wejściowe",
+        "ru": "Входные токены",
+        "ko": "입력 토큰",
+        "ar": "رموز الإدخال"
+      }
+    },
+    {
+      "name": "output_tokens",
+      "type": "number",
+      "title": {
+        "en": "Output tokens",
+        "nl": "Outputtokens",
+        "de": "Ausgabetokens",
+        "fr": "Tokens en sortie",
+        "es": "Tokens de salida",
+        "da": "Outputtokens",
+        "no": "Utdatatokener",
+        "sv": "Utdatatoken",
+        "it": "Token di output",
+        "pl": "Tokeny wyjściowe",
+        "ru": "Выходные токены",
+        "ko": "출력 토큰",
+        "ar": "رموز الإخراج"
+      }
+    },
+    {
+      "name": "request_id",
+      "type": "string",
+      "title": {
+        "en": "Evaluation ID",
+        "nl": "Evaluatie-ID",
+        "de": "Auswertungs-ID",
+        "fr": "Identifiant d’évaluation",
+        "es": "ID de evaluación",
+        "da": "Vurderings-ID",
+        "no": "Vurderings-ID",
+        "sv": "Bedömnings-ID",
+        "it": "ID valutazione",
+        "pl": "ID oceny",
+        "ru": "ID оценки",
+        "ko": "평가 ID",
+        "ar": "معرّف التقييم"
+      }
+    },
+    {
+      "name": "duration_ms",
+      "type": "number",
+      "title": {
+        "en": "Duration (ms)",
+        "nl": "Duur (ms)",
+        "de": "Dauer (ms)",
+        "fr": "Durée (ms)",
+        "es": "Duración (ms)",
+        "da": "Varighed (ms)",
+        "no": "Varighet (ms)",
+        "sv": "Varaktighet (ms)",
+        "it": "Durata (ms)",
+        "pl": "Czas trwania (ms)",
+        "ru": "Длительность (мс)",
+        "ko": "소요 시간 (ms)",
+        "ar": "المدة (مللي ثانية)"
+      }
+    }
+  ]
+}

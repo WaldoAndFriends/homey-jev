@@ -1,0 +1,187 @@
+{
+  "title": {
+    "en": "Evaluate JSON with an image",
+    "nl": "Evalueer JSON met een afbeelding",
+    "de": "JSON mit einem Bild auswerten",
+    "fr": "Évaluer du JSON avec une image",
+    "es": "Evaluar JSON con una imagen",
+    "da": "Vurder JSON med et billede",
+    "no": "Vurder JSON med et bilde",
+    "sv": "Bedöm JSON med en bild",
+    "it": "Valuta JSON con un’immagine",
+    "pl": "Oceń JSON z obrazem",
+    "ru": "Оценить JSON с изображением",
+    "ko": "이미지와 함께 JSON 평가",
+    "ar": "تقييم JSON مع صورة"
+  },
+  "titleFormatted": {
+    "en": "Evaluate [[json]] with image [[droptoken]]",
+    "nl": "Evalueer [[json]] met afbeelding [[droptoken]]",
+    "de": "[[json]] mit Bild [[droptoken]] auswerten",
+    "fr": "Évaluer [[json]] avec l’image [[droptoken]]",
+    "es": "Evaluar [[json]] con la imagen [[droptoken]]",
+    "da": "Vurder [[json]] med billedet [[droptoken]]",
+    "no": "Vurder [[json]] med bildet [[droptoken]]",
+    "sv": "Bedöm [[json]] med bilden [[droptoken]]",
+    "it": "Valuta [[json]] con l’immagine [[droptoken]]",
+    "pl": "Oceń [[json]] z obrazem [[droptoken]]",
+    "ru": "Оценить [[json]] с изображением [[droptoken]]",
+    "ko": "이미지 [[droptoken]]과 함께 [[json]] 평가",
+    "ar": "تقييم [[json]] مع الصورة [[droptoken]]"
+  },
+  "hint": {
+    "en": "Paste {\"state\":…, \"questions\":{…}} and write {{image}} where the image belongs, e.g. {\"state\":{\"door\":\"{{image}}\"}}. Supports choice, noul, score and box, up to 64 questions. Returns all raw answers as JSON; apply your own probability and confidence checks. Uses the model in settings. Images are a TypeSafe preview feature.",
+    "nl": "Plak {\"state\":…, \"questions\":{…}} en schrijf {{image}} waar de afbeelding hoort, bijvoorbeeld {\"state\":{\"deur\":\"{{image}}\"}}. Ondersteunt choice, noul, score en box, maximaal 64 vragen. Geeft alle ruwe antwoorden als JSON; controleer zelf kans en confidence. Gebruikt het model uit instellingen. Afbeeldingen zijn een previewfunctie van TypeSafe.",
+    "de": "Füge {\"state\":…, \"questions\":{…}} ein und schreibe {{image}} an die Stelle des Bildes, z. B. {\"state\":{\"tür\":\"{{image}}\"}}. Unterstützt choice, noul, score und box mit bis zu 64 Fragen. Liefert die Rohantworten als JSON. Prüfe Wahrscheinlichkeit und Konfidenz selbst. Verwendet das Modell aus den Einstellungen. Bilder sind eine Vorschaufunktion von TypeSafe.",
+    "fr": "Collez {\"state\":…, \"questions\":{…}} et écrivez {{image}} là où l’image doit figurer, par exemple {\"state\":{\"porte\":\"{{image}}\"}}. Accepte choice, noul, score et box, jusqu’à 64 questions. Renvoie les réponses brutes en JSON. Vérifiez vous-même les probabilités et la confiance. Utilise le modèle des paramètres. Les images sont une fonction en préversion de TypeSafe.",
+    "es": "Pega {\"state\":…, \"questions\":{…}} y escribe {{image}} donde va la imagen, p. ej. {\"state\":{\"puerta\":\"{{image}}\"}}. Admite choice, noul, score y box, hasta 64 preguntas. Devuelve las respuestas sin procesar en JSON. Comprueba la probabilidad y la confianza. Usa el modelo de los ajustes. Las imágenes son una función en vista previa de TypeSafe.",
+    "da": "Indsæt {\"state\":…, \"questions\":{…}} og skriv {{image}}, hvor billedet hører til, f.eks. {\"state\":{\"dør\":\"{{image}}\"}}. Understøtter choice, noul, score og box med op til 64 spørgsmål. Returnerer rå svar som JSON. Kontroller selv sandsynlighed og sikkerhed. Bruger modellen fra indstillingerne. Billeder er en previewfunktion i TypeSafe.",
+    "no": "Lim inn {\"state\":…, \"questions\":{…}} og skriv {{image}} der bildet hører hjemme, f.eks. {\"state\":{\"dør\":\"{{image}}\"}}. Støtter choice, noul, score og box med opptil 64 spørsmål. Returnerer rå svar som JSON. Kontroller sannsynlighet og sikkerhet selv. Bruker modellen fra innstillingene. Bilder er en forhåndsvisningsfunksjon i TypeSafe.",
+    "sv": "Klistra in {\"state\":…, \"questions\":{…}} och skriv {{image}} där bilden hör hemma, t.ex. {\"state\":{\"dörr\":\"{{image}}\"}}. Stöder choice, noul, score och box med upp till 64 frågor. Returnerar råa svar som JSON. Kontrollera sannolikhet och säkerhet själv. Använder modellen från inställningarna. Bilder är en förhandsfunktion i TypeSafe.",
+    "it": "Incolla {\"state\":…, \"questions\":{…}} e scrivi {{image}} dove va l’immagine, ad es. {\"state\":{\"porta\":\"{{image}}\"}}. Supporta choice, noul, score e box, fino a 64 domande. Restituisce le risposte grezze in JSON. Verifica probabilità e confidenza. Usa il modello delle impostazioni. Le immagini sono una funzione in anteprima di TypeSafe.",
+    "pl": "Wklej {\"state\":…, \"questions\":{…}} i wpisz {{image}} tam, gdzie ma być obraz, np. {\"state\":{\"drzwi\":\"{{image}}\"}}. Obsługuje choice, noul, score i box, do 64 pytań. Zwraca surowe odpowiedzi w JSON. Samodzielnie sprawdzaj prawdopodobieństwo i pewność. Używa modelu z ustawień. Obrazy to funkcja testowa TypeSafe.",
+    "ru": "Вставьте {\"state\":…, \"questions\":{…}} и напишите {{image}} там, где должно быть изображение, например {\"state\":{\"door\":\"{{image}}\"}}. Поддерживает choice, noul, score и box, до 64 вопросов. Возвращает исходные ответы в JSON. Проверяйте вероятность и уверенность самостоятельно. Использует модель из настроек. Изображения — предварительная функция TypeSafe.",
+    "ko": "{\"state\":…, \"questions\":{…}}를 붙여 넣고 이미지가 들어갈 곳에 {{image}}를 쓰세요. 예: {\"state\":{\"door\":\"{{image}}\"}}. choice, noul, score, box와 최대 64개 질문을 지원합니다. 원본 답변을 JSON으로 반환합니다. 확률과 신뢰도는 직접 확인하세요. 설정의 모델을 사용합니다. 이미지는 TypeSafe의 미리 보기 기능입니다.",
+    "ar": "ألصق {\"state\":…, \"questions\":{…}} واكتب {{image}} حيث يجب أن تكون الصورة، مثل {\"state\":{\"door\":\"{{image}}\"}}. يدعم choice وnoul وscore وbox حتى 64 سؤالًا. يعيد الإجابات الخام بصيغة JSON. تحقق بنفسك من الاحتمالات والثقة. يستخدم النموذج المحدد في الإعدادات. الصور ميزة تجريبية في TypeSafe."
+  },
+  "droptoken": [
+    "image"
+  ],
+  "args": [
+    {
+      "name": "json",
+      "type": "text",
+      "title": {
+        "en": "Request JSON",
+        "nl": "Aanvraag-JSON",
+        "de": "Anfrage als JSON",
+        "fr": "Requête JSON",
+        "es": "Solicitud JSON",
+        "da": "JSON-anmodning",
+        "no": "JSON-forespørsel",
+        "sv": "JSON-förfrågan",
+        "it": "Richiesta JSON",
+        "pl": "Żądanie JSON",
+        "ru": "Запрос JSON",
+        "ko": "요청 JSON",
+        "ar": "طلب JSON"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "answers",
+      "type": "string",
+      "title": {
+        "en": "Answers (JSON)",
+        "nl": "Antwoorden (JSON)",
+        "de": "Antworten (JSON)",
+        "fr": "Réponses (JSON)",
+        "es": "Respuestas (JSON)",
+        "da": "Svar (JSON)",
+        "no": "Svar (JSON)",
+        "sv": "Svar (JSON)",
+        "it": "Risposte (JSON)",
+        "pl": "Odpowiedzi (JSON)",
+        "ru": "Ответы (JSON)",
+        "ko": "답변 (JSON)",
+        "ar": "الإجابات (JSON)"
+      }
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "title": {
+        "en": "Model",
+        "nl": "Model",
+        "de": "Modell",
+        "fr": "Modèle",
+        "es": "Modelo",
+        "da": "Model",
+        "no": "Modell",
+        "sv": "Modell",
+        "it": "Modello",
+        "pl": "Model",
+        "ru": "Модель",
+        "ko": "모델",
+        "ar": "النموذج"
+      }
+    },
+    {
+      "name": "input_tokens",
+      "type": "number",
+      "title": {
+        "en": "Input tokens",
+        "nl": "Inputtokens",
+        "de": "Eingabetokens",
+        "fr": "Tokens en entrée",
+        "es": "Tokens de entrada",
+        "da": "Inputtokens",
+        "no": "Inndatatokener",
+        "sv": "Indatatoken",
+        "it": "Token di input",
+        "pl": "Tokeny wejściowe",
+        "ru": "Входные токены",
+        "ko": "입력 토큰",
+        "ar": "رموز الإدخال"
+      }
+    },
+    {
+      "name": "output_tokens",
+      "type": "number",
+      "title": {
+        "en": "Output tokens",
+        "nl": "Outputtokens",
+        "de": "Ausgabetokens",
+        "fr": "Tokens en sortie",
+        "es": "Tokens de salida",
+        "da": "Outputtokens",
+        "no": "Utdatatokener",
+        "sv": "Utdatatoken",
+        "it": "Token di output",
+        "pl": "Tokeny wyjściowe",
+        "ru": "Выходные токены",
+        "ko": "출력 토큰",
+        "ar": "رموز الإخراج"
+      }
+    },
+    {
+      "name": "request_id",
+      "type": "string",
+      "title": {
+        "en": "Evaluation ID",
+        "nl": "Evaluatie-ID",
+        "de": "Auswertungs-ID",
+        "fr": "Identifiant d’évaluation",
+        "es": "ID de evaluación",
+        "da": "Vurderings-ID",
+        "no": "Vurderings-ID",
+        "sv": "Bedömnings-ID",
+        "it": "ID valutazione",
+        "pl": "ID oceny",
+        "ru": "ID оценки",
+        "ko": "평가 ID",
+        "ar": "معرّف التقييم"
+      }
+    },
+    {
+      "name": "duration_ms",
+      "type": "number",
+      "title": {
+        "en": "Duration (ms)",
+        "nl": "Duur (ms)",
+        "de": "Dauer (ms)",
+        "fr": "Durée (ms)",
+        "es": "Duración (ms)",
+        "da": "Varighed (ms)",
+        "no": "Varighet (ms)",
+        "sv": "Varaktighet (ms)",
+        "it": "Durata (ms)",
+        "pl": "Czas trwania (ms)",
+        "ru": "Длительность (мс)",
+        "ko": "소요 시간 (ms)",
+        "ar": "المدة (مللي ثانية)"
+      }
+    }
+  ]
+}

@@ -1,4 +1,9 @@
 export { default as Advanced } from './advanced';
 export { default as ChoiceList } from './choiceList';
+export { default as ImageAdvanced } from './imageAdvanced';
+export { default as ImageChoiceList } from './imageChoiceList';
+export { default as ImageLocate } from './imageLocate';
+export { default as ImageScore } from './imageScore';
+export { default as ImageYesNo } from './imageYesNo';
 export { default as Score } from './score';
 export { default as YesNo } from './yesNo';

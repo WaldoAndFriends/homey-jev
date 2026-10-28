@@ -1,0 +1,321 @@
+{
+  "title": {
+    "en": "Choose from a list for an image",
+    "nl": "Kies uit een lijst voor een afbeelding",
+    "de": "Für ein Bild aus einer Liste wählen",
+    "fr": "Choisir dans une liste pour une image",
+    "es": "Elegir de una lista para una imagen",
+    "da": "Vælg fra en liste for et billede",
+    "no": "Velg fra en liste for et bilde",
+    "sv": "Välj från en lista för en bild",
+    "it": "Scegli da un elenco per un’immagine",
+    "pl": "Wybierz z listy dla obrazu",
+    "ru": "Выбрать из списка для изображения",
+    "ko": "이미지에 대해 목록에서 선택",
+    "ar": "اختيار من قائمة لصورة"
+  },
+  "titleFormatted": {
+    "en": "Choose for [[question]] about [[droptoken]] with context [[state]] from [[answers]] with minimum confidence [[minimum]]",
+    "nl": "Kies voor [[question]] over [[droptoken]] met context [[state]] uit [[answers]] met minimale confidence [[minimum]]",
+    "de": "Für [[question]] zu [[droptoken]] mit Kontext [[state]] aus [[answers]] mit Mindestkonfidenz [[minimum]] wählen",
+    "fr": "Pour [[question]] sur [[droptoken]] avec le contexte [[state]], choisir dans [[answers]] avec une confiance minimale de [[minimum]]",
+    "es": "Para [[question]] sobre [[droptoken]] con contexto [[state]], elegir de [[answers]] con confianza mínima [[minimum]]",
+    "da": "Vælg for [[question]] om [[droptoken]] med kontekst [[state]] fra [[answers]] med mindste sikkerhed [[minimum]]",
+    "no": "Velg for [[question]] om [[droptoken]] med kontekst [[state]] fra [[answers]] med minste sikkerhet [[minimum]]",
+    "sv": "Välj för [[question]] om [[droptoken]] med kontext [[state]] från [[answers]] med minsta säkerhet [[minimum]]",
+    "it": "Per [[question]] su [[droptoken]] con contesto [[state]], scegli da [[answers]] con confidenza minima [[minimum]]",
+    "pl": "Dla [[question]] o obraz [[droptoken]] z kontekstem [[state]] wybierz z [[answers]] przy minimalnej pewności [[minimum]]",
+    "ru": "Для [[question]] по изображению [[droptoken]] с контекстом [[state]] выбрать из [[answers]] с минимальной уверенностью [[minimum]]",
+    "ko": "컨텍스트 [[state]]과 함께 [[droptoken]]의 [[question]]에 대해 최소 신뢰도 [[minimum]]으로 [[answers]] 중 선택",
+    "ar": "اختر لسؤال [[question]] عن [[droptoken]] مع السياق [[state]] من [[answers]] بحد أدنى للثقة [[minimum]]"
+  },
+  "hint": {
+    "en": "Drop an image tag and ask one question about it. Context is optional. Enter 2–255 different answers, one per line, or insert a text Flow tag containing the list. Blank lines are ignored. Returns the selected text and its position starting at 1. A result below the minimum confidence follows the error path. Images are a TypeSafe preview feature.",
+    "nl": "Zet een afbeeldingstag neer en stel er één vraag over. Context is optioneel. Geef 2–255 verschillende antwoorden, één per regel, of voeg een teksttag met de lijst in. Lege regels worden genegeerd. Geeft de gekozen tekst en de positie vanaf 1 terug. Een resultaat onder de minimale confidence volgt het foutpad. Afbeeldingen zijn een previewfunctie van TypeSafe.",
+    "de": "Lege ein Bild-Tag ab und stelle eine Frage dazu. Kontext ist optional. Gib 2–255 unterschiedliche Antworten ein, eine pro Zeile, oder nutze ein Text-Tag mit der Liste. Leerzeilen werden ignoriert. Liefert die gewählte Antwort und ihre Position ab 1. Unterhalb der Mindestkonfidenz wird der Fehlerpfad verwendet. Bilder sind eine Vorschaufunktion von TypeSafe.",
+    "fr": "Déposez un tag image et posez une question à son sujet. Le contexte est facultatif. Saisissez 2 à 255 réponses distinctes, une par ligne, ou insérez un tag texte contenant la liste. Les lignes vides sont ignorées. Renvoie le texte choisi et sa position à partir de 1. Une confiance insuffisante déclenche le chemin d’erreur. Les images sont une fonction en préversion de TypeSafe.",
+    "es": "Suelta una etiqueta de imagen y haz una pregunta sobre ella. El contexto es opcional. Introduce entre 2 y 255 respuestas diferentes, una por línea, o inserta una etiqueta de texto con la lista. Se ignoran las líneas vacías. Devuelve el texto elegido y su posición desde 1. Una confianza insuficiente activa la ruta de error. Las imágenes son una función en vista previa de TypeSafe.",
+    "da": "Slip et billedtag og stil ét spørgsmål om det. Kontekst er valgfri. Angiv 2–255 forskellige svar, ét pr. linje, eller indsæt et teksttag med listen. Tomme linjer ignoreres. Returnerer det valgte svar og dets position fra 1. For lav sikkerhed aktiverer fejlstien. Billeder er en previewfunktion i TypeSafe.",
+    "no": "Slipp en bildetagg og still ett spørsmål om det. Kontekst er valgfri. Oppgi 2–255 ulike svar, ett per linje, eller sett inn en teksttagg med listen. Tomme linjer ignoreres. Returnerer valgt tekst og plasseringen fra 1. For lav sikkerhet aktiverer feilbanen. Bilder er en forhåndsvisningsfunksjon i TypeSafe.",
+    "sv": "Släpp en bildtagg och ställ en fråga om den. Kontext är valfri. Ange 2–255 olika svar, ett per rad, eller infoga en texttagg med listan. Tomma rader ignoreras. Returnerar vald text och dess position från 1. För låg säkerhet aktiverar felvägen. Bilder är en förhandsfunktion i TypeSafe.",
+    "it": "Inserisci un tag immagine e poni una domanda. Il contesto è facoltativo. Inserisci da 2 a 255 risposte diverse, una per riga, oppure un tag di testo con l’elenco. Le righe vuote vengono ignorate. Restituisce il testo scelto e la posizione a partire da 1. Una confidenza insufficiente attiva il percorso di errore. Le immagini sono una funzione in anteprima di TypeSafe.",
+    "pl": "Upuść znacznik obrazu i zadaj o nim jedno pytanie. Kontekst jest opcjonalny. Podaj 2–255 różnych odpowiedzi, po jednej w wierszu, lub wstaw znacznik tekstowy z listą. Puste wiersze są pomijane. Zwraca wybrany tekst i pozycję liczoną od 1. Zbyt niska pewność uruchamia ścieżkę błędu. Obrazy to funkcja testowa TypeSafe.",
+    "ru": "Перетащите тег изображения и задайте один вопрос о нём. Контекст необязателен. Укажите 2–255 разных ответов, по одному в строке, или вставьте текстовый тег со списком. Пустые строки игнорируются. Возвращает выбранный текст и позицию начиная с 1. При недостаточной уверенности выполняется ветка ошибки. Изображения — предварительная функция TypeSafe.",
+    "ko": "이미지 태그를 놓고 그에 대해 질문 하나를 하세요. 컨텍스트는 선택 사항입니다. 서로 다른 답변 2–255개를 한 줄에 하나씩 입력하거나 목록이 담긴 텍스트 태그를 넣으세요. 빈 줄은 무시됩니다. 선택한 텍스트와 1부터 시작하는 위치를 반환합니다. 신뢰도가 부족하면 오류 경로로 진행합니다. 이미지는 TypeSafe의 미리 보기 기능입니다.",
+    "ar": "أفلت وسم صورة واطرح سؤالًا واحدًا عنها. السياق اختياري. أدخل من 2 إلى 255 إجابة مختلفة، واحدة في كل سطر، أو أدرج وسمًا نصيًا يحتوي على القائمة. تُتجاهل الأسطر الفارغة. يعيد النص المختار وموضعه بدءًا من 1. إذا انخفضت الثقة عن الحد الأدنى، يُتّبع مسار الخطأ. الصور ميزة تجريبية في TypeSafe."
+  },
+  "droptoken": [
+    "image"
+  ],
+  "args": [
+    {
+      "name": "state",
+      "type": "text",
+      "required": false,
+      "title": {
+        "en": "Context (optional)",
+        "nl": "Context (optioneel)",
+        "de": "Kontext (optional)",
+        "fr": "Contexte (facultatif)",
+        "es": "Contexto (opcional)",
+        "da": "Kontekst (valgfri)",
+        "no": "Kontekst (valgfritt)",
+        "sv": "Kontext (valfritt)",
+        "it": "Contesto (facoltativo)",
+        "pl": "Kontekst (opcjonalnie)",
+        "ru": "Контекст (необязательно)",
+        "ko": "컨텍스트 (선택 사항)",
+        "ar": "السياق (اختياري)"
+      }
+    },
+    {
+      "name": "question",
+      "type": "text",
+      "title": {
+        "en": "Question",
+        "nl": "Vraag",
+        "de": "Frage",
+        "fr": "Question",
+        "es": "Pregunta",
+        "da": "Spørgsmål",
+        "no": "Spørsmål",
+        "sv": "Fråga",
+        "it": "Domanda",
+        "pl": "Pytanie",
+        "ru": "Вопрос",
+        "ko": "질문",
+        "ar": "السؤال"
+      }
+    },
+    {
+      "name": "answers",
+      "type": "text",
+      "title": {
+        "en": "Answers (one per line)",
+        "nl": "Antwoorden (één per regel)",
+        "de": "Antworten (eine pro Zeile)",
+        "fr": "Réponses (une par ligne)",
+        "es": "Respuestas (una por línea)",
+        "da": "Svar (ét pr. linje)",
+        "no": "Svar (ett per linje)",
+        "sv": "Svar (ett per rad)",
+        "it": "Risposte (una per riga)",
+        "pl": "Odpowiedzi (jedna w wierszu)",
+        "ru": "Ответы (по одному в строке)",
+        "ko": "답변 (한 줄에 하나)",
+        "ar": "الإجابات (واحدة في كل سطر)"
+      },
+      "placeholder": {
+        "en": "Film watching\nReading\nSocializing",
+        "nl": "Film kijken\nLezen\nGezellig samenzijn",
+        "de": "Film schauen\nLesen\nZeit mit Gästen verbringen",
+        "fr": "Regarder un film\nLire\nRecevoir des invités",
+        "es": "Ver una película\nLeer\nEstar con invitados",
+        "da": "Se film\nLæse\nVære sammen med gæster",
+        "no": "Se film\nLese\nVære sammen med gjester",
+        "sv": "Titta på film\nLäsa\nUmgås med gäster",
+        "it": "Guardare un film\nLeggere\nStare con gli ospiti",
+        "pl": "Oglądanie filmu\nCzytanie\nSpotkanie z gośćmi",
+        "ru": "Просмотр фильма\nЧтение\nОбщение с гостями",
+        "ko": "영화 보기\n독서\n손님과 대화",
+        "ar": "مشاهدة فيلم\nالقراءة\nالجلوس مع الضيوف"
+      }
+    },
+    {
+      "name": "minimum",
+      "type": "number",
+      "title": {
+        "en": "Minimum confidence (0–1)",
+        "nl": "Minimale confidence (0–1)",
+        "de": "Mindestkonfidenz (0–1)",
+        "fr": "Confiance minimale (0–1)",
+        "es": "Confianza mínima (0–1)",
+        "da": "Mindste sikkerhed (0–1)",
+        "no": "Minste sikkerhet (0–1)",
+        "sv": "Minsta säkerhet (0–1)",
+        "it": "Confidenza minima (0–1)",
+        "pl": "Minimalna pewność (0–1)",
+        "ru": "Минимальная уверенность (0–1)",
+        "ko": "최소 신뢰도 (0–1)",
+        "ar": "الحد الأدنى للثقة (0–1)"
+      },
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.8
+    }
+  ],
+  "tokens": [
+    {
+      "name": "answer",
+      "type": "string",
+      "title": {
+        "en": "Answer",
+        "nl": "Antwoord",
+        "de": "Antwort",
+        "fr": "Réponse",
+        "es": "Respuesta",
+        "da": "Svar",
+        "no": "Svar",
+        "sv": "Svar",
+        "it": "Risposta",
+        "pl": "Odpowiedź",
+        "ru": "Ответ",
+        "ko": "답변",
+        "ar": "الإجابة"
+      }
+    },
+    {
+      "name": "answer_number",
+      "type": "number",
+      "title": {
+        "en": "Answer number",
+        "nl": "Antwoordnummer",
+        "de": "Antwortnummer",
+        "fr": "Numéro de réponse",
+        "es": "Número de respuesta",
+        "da": "Svarnummer",
+        "no": "Svarnummer",
+        "sv": "Svarsnummer",
+        "it": "Numero della risposta",
+        "pl": "Numer odpowiedzi",
+        "ru": "Номер ответа",
+        "ko": "답변 번호",
+        "ar": "رقم الإجابة"
+      }
+    },
+    {
+      "name": "confidence",
+      "type": "number",
+      "title": {
+        "en": "Confidence",
+        "nl": "Confidence",
+        "de": "Konfidenz",
+        "fr": "Confiance",
+        "es": "Confianza",
+        "da": "Sikkerhed",
+        "no": "Sikkerhet",
+        "sv": "Säkerhet",
+        "it": "Confidenza",
+        "pl": "Pewność",
+        "ru": "Уверенность",
+        "ko": "신뢰도",
+        "ar": "الثقة"
+      }
+    },
+    {
+      "name": "probability",
+      "type": "number",
+      "title": {
+        "en": "Probability of selected answer",
+        "nl": "Kans van gekozen antwoord",
+        "de": "Wahrscheinlichkeit der gewählten Antwort",
+        "fr": "Probabilité de la réponse choisie",
+        "es": "Probabilidad de la respuesta elegida",
+        "da": "Sandsynlighed for det valgte svar",
+        "no": "Sannsynlighet for valgt svar",
+        "sv": "Sannolikhet för valt svar",
+        "it": "Probabilità della risposta scelta",
+        "pl": "Prawdopodobieństwo wybranej odpowiedzi",
+        "ru": "Вероятность выбранного ответа",
+        "ko": "선택한 답변의 확률",
+        "ar": "احتمال الإجابة المختارة"
+      }
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "title": {
+        "en": "Model",
+        "nl": "Model",
+        "de": "Modell",
+        "fr": "Modèle",
+        "es": "Modelo",
+        "da": "Model",
+        "no": "Modell",
+        "sv": "Modell",
+        "it": "Modello",
+        "pl": "Model",
+        "ru": "Модель",
+        "ko": "모델",
+        "ar": "النموذج"
+      }
+    },
+    {
+      "name": "input_tokens",
+      "type": "number",
+      "title": {
+        "en": "Input tokens",
+        "nl": "Inputtokens",
+        "de": "Eingabetokens",
+        "fr": "Tokens en entrée",
+        "es": "Tokens de entrada",
+        "da": "Inputtokens",
+        "no": "Inndatatokener",
+        "sv": "Indatatoken",
+        "it": "Token di input",
+        "pl": "Tokeny wejściowe",
+        "ru": "Входные токены",
+        "ko": "입력 토큰",
+        "ar": "رموز الإدخال"
+      }
+    },
+    {
+      "name": "output_tokens",
+      "type": "number",
+      "title": {
+        "en": "Output tokens",
+        "nl": "Outputtokens",
+        "de": "Ausgabetokens",
+        "fr": "Tokens en sortie",
+        "es": "Tokens de salida",
+        "da": "Outputtokens",
+        "no": "Utdatatokener",
+        "sv": "Utdatatoken",
+        "it": "Token di output",
+        "pl": "Tokeny wyjściowe",
+        "ru": "Выходные токены",
+        "ko": "출력 토큰",
+        "ar": "رموز الإخراج"
+      }
+    },
+    {
+      "name": "request_id",
+      "type": "string",
+      "title": {
+        "en": "Evaluation ID",
+        "nl": "Evaluatie-ID",
+        "de": "Auswertungs-ID",
+        "fr": "Identifiant d’évaluation",
+        "es": "ID de evaluación",
+        "da": "Vurderings-ID",
+        "no": "Vurderings-ID",
+        "sv": "Bedömnings-ID",
+        "it": "ID valutazione",
+        "pl": "ID oceny",
+        "ru": "ID оценки",
+        "ko": "평가 ID",
+        "ar": "معرّف التقييم"
+      }
+    },
+    {
+      "name": "duration_ms",
+      "type": "number",
+      "title": {
+        "en": "Duration (ms)",
+        "nl": "Duur (ms)",
+        "de": "Dauer (ms)",
+        "fr": "Durée (ms)",
+        "es": "Duración (ms)",
+        "da": "Varighed (ms)",
+        "no": "Varighet (ms)",
+        "sv": "Varaktighet (ms)",
+        "it": "Durata (ms)",
+        "pl": "Czas trwania (ms)",
+        "ru": "Длительность (мс)",
+        "ko": "소요 시간 (ms)",
+        "ar": "المدة (مللي ثانية)"
+      }
+    }
+  ]
+}

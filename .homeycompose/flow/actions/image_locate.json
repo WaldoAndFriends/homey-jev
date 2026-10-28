@@ -1,0 +1,321 @@
+{
+  "title": {
+    "en": "Locate something in an image",
+    "nl": "Vind iets in een afbeelding",
+    "de": "Etwas in einem Bild finden",
+    "fr": "Localiser un élément dans une image",
+    "es": "Localizar algo en una imagen",
+    "da": "Find noget i et billede",
+    "no": "Finn noe i et bilde",
+    "sv": "Hitta något i en bild",
+    "it": "Trova qualcosa in un’immagine",
+    "pl": "Znajdź coś na obrazie",
+    "ru": "Найти объект на изображении",
+    "ko": "이미지에서 대상 찾기",
+    "ar": "تحديد موقع شيء في صورة"
+  },
+  "titleFormatted": {
+    "en": "Locate [[question]] in [[droptoken]] with context [[state]] with minimum confidence [[minimum]]",
+    "nl": "Vind [[question]] in [[droptoken]] met context [[state]] met minimale confidence [[minimum]]",
+    "de": "[[question]] in [[droptoken]] mit Kontext [[state]] und Mindestkonfidenz [[minimum]] finden",
+    "fr": "Localiser [[question]] dans [[droptoken]] avec le contexte [[state]] et une confiance minimale de [[minimum]]",
+    "es": "Localizar [[question]] en [[droptoken]] con contexto [[state]] y confianza mínima [[minimum]]",
+    "da": "Find [[question]] i [[droptoken]] med kontekst [[state]] og mindste sikkerhed [[minimum]]",
+    "no": "Finn [[question]] i [[droptoken]] med kontekst [[state]] og minste sikkerhet [[minimum]]",
+    "sv": "Hitta [[question]] i [[droptoken]] med kontext [[state]] och minsta säkerhet [[minimum]]",
+    "it": "Trova [[question]] in [[droptoken]] con contesto [[state]] e confidenza minima [[minimum]]",
+    "pl": "Znajdź [[question]] na obrazie [[droptoken]] z kontekstem [[state]] przy minimalnej pewności [[minimum]]",
+    "ru": "Найти [[question]] на изображении [[droptoken]] с контекстом [[state]] и минимальной уверенностью [[minimum]]",
+    "ko": "컨텍스트 [[state]]과 함께 [[droptoken]]에서 최소 신뢰도 [[minimum]]으로 [[question]] 찾기",
+    "ar": "حدد موقع [[question]] في [[droptoken]] مع السياق [[state]] بحد أدنى للثقة [[minimum]]"
+  },
+  "hint": {
+    "en": "Drop an image tag and describe one thing to find. Returns its box as fractions (0–1) of the image width and height, measured from the top-left corner. A box is always returned, even when the thing is absent: check with a yes/no card first. A result below the minimum confidence follows the error path. Images are a TypeSafe preview feature.",
+    "nl": "Zet een afbeeldingstag neer en beschrijf één ding om te vinden. Geeft het kader eromheen als fracties (0–1) van de breedte en hoogte, gemeten vanaf linksboven. Er komt altijd een kader terug, ook als het ding ontbreekt: controleer eerst met een ja/nee-kaart. Een resultaat onder de minimale confidence volgt het foutpad. Afbeeldingen zijn een previewfunctie van TypeSafe.",
+    "de": "Lege ein Bild-Tag ab und beschreibe eine Sache, die gefunden werden soll. Liefert den Rahmen darum als Anteile (0–1) von Bildbreite und -höhe, von oben links gemessen. Es wird immer ein Rahmen geliefert, auch wenn die Sache fehlt: Prüfe zuerst mit einer Ja/Nein-Karte. Unterhalb der Mindestkonfidenz wird der Fehlerpfad verwendet. Bilder sind eine Vorschaufunktion von TypeSafe.",
+    "fr": "Déposez un tag image et décrivez un élément à trouver. Renvoie son cadre en fractions (0–1) de la largeur et de la hauteur de l’image, depuis le coin supérieur gauche. Un cadre est toujours renvoyé, même si l’élément est absent : vérifiez d’abord avec une carte oui/non. Une confiance insuffisante déclenche le chemin d’erreur. Les images sont une fonction en préversion de TypeSafe.",
+    "es": "Suelta una etiqueta de imagen y describe una cosa que buscar. Devuelve su recuadro como fracciones (0–1) del ancho y alto de la imagen, desde la esquina superior izquierda. Siempre se devuelve un recuadro, aunque la cosa no esté: compruébalo antes con una tarjeta de sí/no. Una confianza insuficiente activa la ruta de error. Las imágenes son una función en vista previa de TypeSafe.",
+    "da": "Slip et billedtag og beskriv én ting, der skal findes. Returnerer rammen omkring den som andele (0–1) af billedets bredde og højde, målt fra øverste venstre hjørne. Der returneres altid en ramme, også når tingen mangler: tjek først med et ja/nej-kort. For lav sikkerhed aktiverer fejlstien. Billeder er en previewfunktion i TypeSafe.",
+    "no": "Slipp en bildetagg og beskriv én ting som skal finnes. Returnerer rammen rundt den som andeler (0–1) av bildets bredde og høyde, målt fra øvre venstre hjørne. En ramme returneres alltid, også når tingen mangler: sjekk først med et ja/nei-kort. For lav sikkerhet aktiverer feilbanen. Bilder er en forhåndsvisningsfunksjon i TypeSafe.",
+    "sv": "Släpp en bildtagg och beskriv en sak att hitta. Returnerar rutan runt den som andelar (0–1) av bildens bredd och höjd, mätt från övre vänstra hörnet. En ruta returneras alltid, även om saken saknas: kontrollera först med ett ja/nej-kort. För låg säkerhet aktiverar felvägen. Bilder är en förhandsfunktion i TypeSafe.",
+    "it": "Inserisci un tag immagine e descrivi una cosa da trovare. Restituisce il riquadro come frazioni (0–1) di larghezza e altezza dell’immagine, dall’angolo in alto a sinistra. Un riquadro viene sempre restituito, anche se la cosa manca: verifica prima con una scheda sì/no. Una confidenza insufficiente attiva il percorso di errore. Le immagini sono una funzione in anteprima di TypeSafe.",
+    "pl": "Upuść znacznik obrazu i opisz jedną rzecz do znalezienia. Zwraca ramkę wokół niej jako ułamki (0–1) szerokości i wysokości obrazu, od lewego górnego rogu. Ramka jest zwracana zawsze, nawet gdy rzeczy brak: najpierw sprawdź kartą tak/nie. Zbyt niska pewność uruchamia ścieżkę błędu. Obrazy to funkcja testowa TypeSafe.",
+    "ru": "Перетащите тег изображения и опишите один объект для поиска. Возвращает рамку вокруг него в долях (0–1) ширины и высоты изображения от левого верхнего угла. Рамка возвращается всегда, даже если объекта нет: сначала проверьте карточкой да/нет. При недостаточной уверенности выполняется ветка ошибки. Изображения — предварительная функция TypeSafe.",
+    "ko": "이미지 태그를 놓고 찾을 대상 하나를 설명하세요. 왼쪽 위 모서리를 기준으로 이미지 너비와 높이에 대한 비율(0–1)로 대상을 감싸는 상자를 반환합니다. 대상이 없어도 상자는 항상 반환되므로 먼저 예/아니요 카드로 확인하세요. 신뢰도가 부족하면 오류 경로로 진행합니다. 이미지는 TypeSafe의 미리 보기 기능입니다.",
+    "ar": "أفلت وسم صورة وصف شيئًا واحدًا للعثور عليه. يعيد الإطار المحيط به ككسور (0–1) من عرض الصورة وارتفاعها، بدءًا من الزاوية العلوية اليسرى. يُعاد إطار دائمًا حتى لو كان الشيء غير موجود: تحقق أولًا ببطاقة نعم/لا. إذا انخفضت الثقة عن الحد الأدنى، يُتّبع مسار الخطأ. الصور ميزة تجريبية في TypeSafe."
+  },
+  "droptoken": [
+    "image"
+  ],
+  "args": [
+    {
+      "name": "state",
+      "type": "text",
+      "required": false,
+      "title": {
+        "en": "Context (optional)",
+        "nl": "Context (optioneel)",
+        "de": "Kontext (optional)",
+        "fr": "Contexte (facultatif)",
+        "es": "Contexto (opcional)",
+        "da": "Kontekst (valgfri)",
+        "no": "Kontekst (valgfritt)",
+        "sv": "Kontext (valfritt)",
+        "it": "Contesto (facoltativo)",
+        "pl": "Kontekst (opcjonalnie)",
+        "ru": "Контекст (необязательно)",
+        "ko": "컨텍스트 (선택 사항)",
+        "ar": "السياق (اختياري)"
+      }
+    },
+    {
+      "name": "question",
+      "type": "text",
+      "title": {
+        "en": "What to find",
+        "nl": "Wat te vinden",
+        "de": "Was gefunden werden soll",
+        "fr": "Élément à trouver",
+        "es": "Qué buscar",
+        "da": "Hvad der skal findes",
+        "no": "Hva som skal finnes",
+        "sv": "Vad som ska hittas",
+        "it": "Cosa trovare",
+        "pl": "Co znaleźć",
+        "ru": "Что найти",
+        "ko": "찾을 대상",
+        "ar": "ما المطلوب العثور عليه"
+      },
+      "placeholder": {
+        "en": "the parcel on the doormat",
+        "nl": "het pakket op de deurmat",
+        "de": "das Paket auf der Fußmatte",
+        "fr": "le colis sur le paillasson",
+        "es": "el paquete sobre el felpudo",
+        "da": "pakken på dørmåtten",
+        "no": "pakken på dørmatten",
+        "sv": "paketet på dörrmattan",
+        "it": "il pacco sullo zerbino",
+        "pl": "paczka na wycieraczce",
+        "ru": "посылка на коврике",
+        "ko": "현관 매트 위의 택배",
+        "ar": "الطرد على ممسحة الباب"
+      }
+    },
+    {
+      "name": "minimum",
+      "type": "number",
+      "title": {
+        "en": "Minimum confidence (0–1)",
+        "nl": "Minimale confidence (0–1)",
+        "de": "Mindestkonfidenz (0–1)",
+        "fr": "Confiance minimale (0–1)",
+        "es": "Confianza mínima (0–1)",
+        "da": "Mindste sikkerhed (0–1)",
+        "no": "Minste sikkerhet (0–1)",
+        "sv": "Minsta säkerhet (0–1)",
+        "it": "Confidenza minima (0–1)",
+        "pl": "Minimalna pewność (0–1)",
+        "ru": "Минимальная уверенность (0–1)",
+        "ko": "최소 신뢰도 (0–1)",
+        "ar": "الحد الأدنى للثقة (0–1)"
+      },
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.6
+    }
+  ],
+  "tokens": [
+    {
+      "name": "top",
+      "type": "number",
+      "title": {
+        "en": "Top edge (0–1)",
+        "nl": "Bovenrand (0–1)",
+        "de": "Oberkante (0–1)",
+        "fr": "Bord supérieur (0–1)",
+        "es": "Borde superior (0–1)",
+        "da": "Overkant (0–1)",
+        "no": "Overkant (0–1)",
+        "sv": "Överkant (0–1)",
+        "it": "Bordo superiore (0–1)",
+        "pl": "Górna krawędź (0–1)",
+        "ru": "Верхний край (0–1)",
+        "ko": "위쪽 가장자리 (0–1)",
+        "ar": "الحافة العليا (0–1)"
+      }
+    },
+    {
+      "name": "bottom",
+      "type": "number",
+      "title": {
+        "en": "Bottom edge (0–1)",
+        "nl": "Onderrand (0–1)",
+        "de": "Unterkante (0–1)",
+        "fr": "Bord inférieur (0–1)",
+        "es": "Borde inferior (0–1)",
+        "da": "Underkant (0–1)",
+        "no": "Underkant (0–1)",
+        "sv": "Nederkant (0–1)",
+        "it": "Bordo inferiore (0–1)",
+        "pl": "Dolna krawędź (0–1)",
+        "ru": "Нижний край (0–1)",
+        "ko": "아래쪽 가장자리 (0–1)",
+        "ar": "الحافة السفلى (0–1)"
+      }
+    },
+    {
+      "name": "left",
+      "type": "number",
+      "title": {
+        "en": "Left edge (0–1)",
+        "nl": "Linkerrand (0–1)",
+        "de": "Linke Kante (0–1)",
+        "fr": "Bord gauche (0–1)",
+        "es": "Borde izquierdo (0–1)",
+        "da": "Venstre kant (0–1)",
+        "no": "Venstre kant (0–1)",
+        "sv": "Vänsterkant (0–1)",
+        "it": "Bordo sinistro (0–1)",
+        "pl": "Lewa krawędź (0–1)",
+        "ru": "Левый край (0–1)",
+        "ko": "왼쪽 가장자리 (0–1)",
+        "ar": "الحافة اليسرى (0–1)"
+      }
+    },
+    {
+      "name": "right",
+      "type": "number",
+      "title": {
+        "en": "Right edge (0–1)",
+        "nl": "Rechterrand (0–1)",
+        "de": "Rechte Kante (0–1)",
+        "fr": "Bord droit (0–1)",
+        "es": "Borde derecho (0–1)",
+        "da": "Højre kant (0–1)",
+        "no": "Høyre kant (0–1)",
+        "sv": "Högerkant (0–1)",
+        "it": "Bordo destro (0–1)",
+        "pl": "Prawa krawędź (0–1)",
+        "ru": "Правый край (0–1)",
+        "ko": "오른쪽 가장자리 (0–1)",
+        "ar": "الحافة اليمنى (0–1)"
+      }
+    },
+    {
+      "name": "confidence",
+      "type": "number",
+      "title": {
+        "en": "Confidence",
+        "nl": "Confidence",
+        "de": "Konfidenz",
+        "fr": "Confiance",
+        "es": "Confianza",
+        "da": "Sikkerhed",
+        "no": "Sikkerhet",
+        "sv": "Säkerhet",
+        "it": "Confidenza",
+        "pl": "Pewność",
+        "ru": "Уверенность",
+        "ko": "신뢰도",
+        "ar": "الثقة"
+      }
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "title": {
+        "en": "Model",
+        "nl": "Model",
+        "de": "Modell",
+        "fr": "Modèle",
+        "es": "Modelo",
+        "da": "Model",
+        "no": "Modell",
+        "sv": "Modell",
+        "it": "Modello",
+        "pl": "Model",
+        "ru": "Модель",
+        "ko": "모델",
+        "ar": "النموذج"
+      }
+    },
+    {
+      "name": "input_tokens",
+      "type": "number",
+      "title": {
+        "en": "Input tokens",
+        "nl": "Inputtokens",
+        "de": "Eingabetokens",
+        "fr": "Tokens en entrée",
+        "es": "Tokens de entrada",
+        "da": "Inputtokens",
+        "no": "Inndatatokener",
+        "sv": "Indatatoken",
+        "it": "Token di input",
+        "pl": "Tokeny wejściowe",
+        "ru": "Входные токены",
+        "ko": "입력 토큰",
+        "ar": "رموز الإدخال"
+      }
+    },
+    {
+      "name": "output_tokens",
+      "type": "number",
+      "title": {
+        "en": "Output tokens",
+        "nl": "Outputtokens",
+        "de": "Ausgabetokens",
+        "fr": "Tokens en sortie",
+        "es": "Tokens de salida",
+        "da": "Outputtokens",
+        "no": "Utdatatokener",
+        "sv": "Utdatatoken",
+        "it": "Token di output",
+        "pl": "Tokeny wyjściowe",
+        "ru": "Выходные токены",
+        "ko": "출력 토큰",
+        "ar": "رموز الإخراج"
+      }
+    },
+    {
+      "name": "request_id",
+      "type": "string",
+      "title": {
+        "en": "Evaluation ID",
+        "nl": "Evaluatie-ID",
+        "de": "Auswertungs-ID",
+        "fr": "Identifiant d’évaluation",
+        "es": "ID de evaluación",
+        "da": "Vurderings-ID",
+        "no": "Vurderings-ID",
+        "sv": "Bedömnings-ID",
+        "it": "ID valutazione",
+        "pl": "ID oceny",
+        "ru": "ID оценки",
+        "ko": "평가 ID",
+        "ar": "معرّف التقييم"
+      }
+    },
+    {
+      "name": "duration_ms",
+      "type": "number",
+      "title": {
+        "en": "Duration (ms)",
+        "nl": "Duur (ms)",
+        "de": "Dauer (ms)",
+        "fr": "Durée (ms)",
+        "es": "Duración (ms)",
+        "da": "Varighed (ms)",
+        "no": "Varighet (ms)",
+        "sv": "Varaktighet (ms)",
+        "it": "Durata (ms)",
+        "pl": "Czas trwania (ms)",
+        "ru": "Длительность (мс)",
+        "ko": "소요 시간 (ms)",
+        "ar": "المدة (مللي ثانية)"
+      }
+    }
+  ]
+}

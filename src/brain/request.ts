@@ -1,9 +1,12 @@
-import type { Content, EvaluationRequest, Json, Question } from '../types';
+import type { Content, EvaluationRequest, ImageAsset, Json, Question } from '../types';
 import { identifier, record, text } from '../validation';
+
+// The text that stands for the image tag in the JSON of the advanced image card.
+const IMAGE_REFERENCE = '{{image}}';
 
 export function validateRequest(input: unknown): EvaluationRequest {
     const body = record(input);
-    onlyKeys(body, ['state', 'questions']);
+    onlyKeys(body, ['state', 'questions', 'assets']);
     const state = content(body.state, 'State');
     const entries = Object.entries(record(body.questions));
     if (entries.length < 1 || entries.length > 64) throw new Error('Provide 1–64 questions.');
@@ -13,15 +16,35 @@ export function validateRequest(input: unknown): EvaluationRequest {
     }));
     const request = {state, questions};
     if (JSON.stringify(request).length > 64000) throw new Error('State and questions must fit within 64,000 characters.');
-    return request;
+    const assets = body.assets === undefined ? undefined : Object.fromEntries(Object.entries(record(body.assets)).map(([reference, value]) => [reference, asset(value)]));
+    if (!assets && Object.values(questions).some(item => item.type === 'box')) throw new Error('Box requires an image.');
+    // The API rejects images that nothing refers to; object keys are never replaced by images.
+    const values = strings(request);
+    if (Object.keys(assets ?? {}).some(reference => !values.some(value => value.includes(reference)))) throw new Error(`Refer to the image as ${IMAGE_REFERENCE} in state, instructions or criteria.`);
+    return assets ? {...request, assets} : request;
 }
 
-export function parseRequest(input: unknown): EvaluationRequest {
+// Users never write assets themselves; the advanced image card supplies its image here.
+export function parseRequest(input: unknown, image?: ImageAsset): EvaluationRequest {
     const source = text(input, 'Request JSON', 64000);
     let value: unknown;
     try { value = JSON.parse(source); }
     catch { throw new Error('Invalid JSON. Supply an object containing state and questions.'); }
-    return validateRequest(value);
+    const body = record(value);
+    onlyKeys(body, ['state', 'questions']);
+    return validateRequest(image ? {...body, assets: {[IMAGE_REFERENCE]: image}} : body);
+}
+
+function asset(value: unknown): ImageAsset {
+    const {format, data} = record(value);
+    if (format !== 'jpg' || !(data instanceof Uint8Array)) throw new Error('Images must be prepared JPEG data.');
+    return {format, data};
+}
+
+function strings(value: unknown): string[] {
+    if (typeof value === 'string') return [value];
+    if (!value || typeof value !== 'object') return [];
+    return Object.values(value).flatMap(strings);
 }
 
 function question(input: unknown): Question {
@@ -48,7 +71,11 @@ function question(input: unknown): Question {
         if (!Array.isArray(value.criteria) || value.criteria.length < 2 || value.criteria.length > 10) throw new Error('Score requires 2–10 described levels.');
         return {type: 'score', instructions, criteria: value.criteria.map(level => content(level, 'Level description'))};
     }
-    throw new Error('Question type must be choice, noul or score.');
+    if (value.type === 'box') {
+        if (value.criteria !== undefined) throw new Error('Box questions take no criteria.');
+        return {type: 'box', instructions};
+    }
+    throw new Error('Question type must be choice, noul, score or box.');
 }
 
 function content(value: unknown, name: string): Content {

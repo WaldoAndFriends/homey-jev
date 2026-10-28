@@ -1,12 +1,11 @@
 import { action } from '@basmilius/homey-common';
-import JevAction, { type SimpleArgs, type Tokens } from '../jevAction';
+import JevAction, { type ImageArgs, type SimpleArgs, type Tokens } from '../jevAction';
 
 /**
- * Action that answers a yes/no question about the state.
+ * Answers a yes/no question about the state or an image.
  */
-@action('yes_no')
-export default class extends JevAction<SimpleArgs, Result> {
-    async onRun(args: SimpleArgs): Promise<Result> {
+export abstract class YesNoAction<TArgs extends SimpleArgs | ImageArgs> extends JevAction<TArgs, Result> {
+    async onRun(args: TArgs): Promise<Result> {
         const minimum = this.threshold(args, 'Minimum probability', 0.51);
         const response = await this.ask(args, {type: 'noul'});
         const answer = response.answers.answer;
@@ -30,6 +29,12 @@ export default class extends JevAction<SimpleArgs, Result> {
         };
     }
 }
+
+/**
+ * Action that answers a yes/no question about the state.
+ */
+@action('yes_no')
+export default class extends YesNoAction<SimpleArgs> {}
 
 type Result = Tokens & {
     readonly answer: boolean;

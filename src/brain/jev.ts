@@ -34,8 +34,8 @@ export default class Jev {
         try {
             response = await this.transport(API_URL, {
                 method: 'POST',
-                headers: {'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json'},
-                body: JSON.stringify({model: settings.model, ...request}),
+                headers: requestHeaders(request, apiKey),
+                body: requestBody(request, settings),
                 signal: AbortSignal.timeout(settings.timeoutSeconds * 1000),
                 redirect: 'error'
             });
@@ -56,6 +56,22 @@ export default class Jev {
     }
 }
 
+// Images are a preview feature that each request must opt into. Box questions always come with an image.
+function requestHeaders(request: EvaluationRequest, apiKey: string): Record<string, string> {
+    const headers: Record<string, string> = {'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json'};
+    if (request.assets) headers['TypeSafe-Danger-Zone-Images'] = 'true';
+    return headers;
+}
+
+function requestBody({state, questions, assets}: EvaluationRequest, settings: Settings): string {
+    const encoded = assets && Object.fromEntries(Object.entries(assets).map(([reference, {format, data}]) => [reference, {
+        type: 'image',
+        format,
+        data_base64: Buffer.from(data.buffer, data.byteOffset, data.length).toString('base64')
+    }]));
+    return JSON.stringify({model: settings.model, state, questions, assets: encoded});
+}
+
 export function parseResponse(input: unknown, request: EvaluationRequest): Omit<EvaluationResponse, 'requestId' | 'durationMs'> {
     const body = record(input);
     const rawAnswers = record(body.answers);
@@ -72,6 +88,12 @@ function parseAnswer(input: unknown, question: Question): Answer {
     const answer = record(input);
     if (answer.type !== question.type) throw new Error('Unexpected answer type.');
     if (question.type === 'noul') return {type: 'noul', noul: number(answer.noul, 'Probability', 0, 1)};
+    if (question.type === 'box') {
+        const box = record(answer.box);
+        const [top, bottom, left, right] = ['top', 'bottom', 'left', 'right'].map(edge => number(box[edge], 'Box edge', 0, 1));
+        if (left > right || top > bottom) throw new Error('Invalid box.');
+        return {type: 'box', box: {top, bottom, left, right}, confidence: number(answer.confidence, 'Confidence', 0, 1)};
+    }
     const keys = question.type === 'choice' ? Object.keys(question.criteria) : question.criteria.map((_, index) => String(index));
     const rawProbabilities = record(answer.probabilities);
     if (Object.keys(rawProbabilities).length !== keys.length) throw new Error('Incomplete probabilities.');

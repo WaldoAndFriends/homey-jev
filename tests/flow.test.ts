@@ -1,4 +1,6 @@
 import { expect, test } from 'bun:test';
+import { Readable } from 'node:stream';
+import { encode } from 'jpeg-js';
 import { Actions } from '../src/flow';
 import type JevApp from '../src/index';
 import type { EvaluationRequest, EvaluationResponse } from '../src/types';
@@ -37,6 +39,7 @@ function fixture() {
         const answers = Object.fromEntries(Object.entries(request.questions).map(([id, question]) => [id,
             question.type === 'choice' ? {type: 'choice', choice, confidence, probabilities: {[choice]: 0.95}}
                 : question.type === 'noul' ? {type: 'noul', noul: probability}
+                : question.type === 'box' ? {type: 'box', box: {top: 0.1, bottom: 0.6, left: 0.2, right: 0.5}, confidence}
                 : {type: 'score', score: 1.5, confidence, probabilities: {'0': 0, '1': 0.5, '2': 0.5}, legend: {'0': 'low', '1': 'mid', '2': 'high'}}
         ]));
         return {answers, model: 'jev-latest', inputTokens: 20, outputTokens: 5, requestId: `request-${requests.length}`, durationMs: 10} as EvaluationResponse;
@@ -65,9 +68,15 @@ function fixture() {
 
 const base = {state: 'We are watching a film.', question: 'Which light scene fits?'};
 
+const photo = encode({width: 640, height: 480, data: Buffer.alloc(640 * 480 * 4, 128)}, 90).data;
+const droptoken = {getStream: async () => Readable.from([photo])};
+
 test('registers only action cards, without conditions or triggers', () => {
     const f = fixture();
-    expect([...f.cards.keys()].sort()).toEqual(['action:advanced', 'action:choice_list', 'action:score', 'action:yes_no']);
+    expect([...f.cards.keys()].sort()).toEqual([
+        'action:advanced', 'action:choice_list', 'action:image_advanced', 'action:image_choice_list',
+        'action:image_locate', 'action:image_score', 'action:image_yes_no', 'action:score', 'action:yes_no'
+    ]);
 });
 
 for (const count of [2, 3, 4]) {
@@ -185,4 +194,69 @@ test('score rejects missing and duplicate levels before evaluating', async () =>
     await expect(f.card('action:score').run({...base, low: 'Dark', middle: ' dark ', high: 'Bright'})).rejects.toThrow('different');
     await expect(f.card('action:score').run({...base, low: 'Dark', middle: 'Comfortable'})).rejects.toThrow();
     expect(f.requests).toHaveLength(0);
+});
+
+test('image cards send the image as an asset referenced from the state, with optional context', async () => {
+    const f = fixture();
+    const result = await f.card('action:image_yes_no').run({droptoken, question: 'Is there a parcel at the door?'});
+    expect(result.answer).toBe(true);
+    const [request] = f.requests;
+    const reference = (request.state as {image: string}).image;
+    expect(request.state).toEqual({image: reference});
+    expect(request.questions).toEqual({answer: {type: 'noul', instructions: 'Is there a parcel at the door?'}});
+    expect(Object.keys(request.assets!)).toEqual([reference]);
+    expect(request.assets![reference].format).toBe('jpg');
+
+    await f.card('action:image_yes_no').run({droptoken, state: ' Front door camera ', question: 'Parcel?'});
+    const second = f.requests[1].state as {image: string; context: string};
+    expect(second.context).toBe('Front door camera');
+    expect(second.image).not.toBe(reference);
+});
+
+test('image choice and score cards reuse the list and rubric rules', async () => {
+    const f = fixture();
+    const choice = await f.card('action:image_choice_list').run({droptoken, question: 'Who is at the door?', answers: 'Courier\nNeighbour\nNobody'});
+    expect(choice.answer).toBe('Neighbour');
+    expect(f.requests[0].questions.answer.criteria).toEqual({answer_1: 'Courier', answer_2: 'Neighbour', answer_3: 'Nobody'});
+    const score = await f.card('action:image_score').run({droptoken, question: 'How tidy?', low: 'Messy', middle: 'Okay', high: 'Tidy'});
+    expect(score.score).toBe(1.5);
+    await expect(f.card('action:image_choice_list').run({droptoken, question: 'Who?', answers: 'Only one'})).rejects.toThrow();
+    expect(f.requests).toHaveLength(2);
+});
+
+test('locate returns the box edges and applies its confidence threshold', async () => {
+    const f = fixture();
+    const result = await f.card('action:image_locate').run({droptoken, question: 'the parcel on the doormat'});
+    expect(result).toMatchObject({top: 0.1, bottom: 0.6, left: 0.2, right: 0.5, confidence: 0.95});
+    expect(f.requests[0].questions).toEqual({answer: {type: 'box', instructions: 'the parcel on the doormat'}});
+    f.setConfidence(0.5);
+    await expect(f.card('action:image_locate').run({droptoken, question: 'the parcel'})).rejects.toThrow('uncertain');
+    expect((await f.card('action:image_locate').run({droptoken, question: 'the parcel', minimum: 0.4})).confidence).toBe(0.5);
+});
+
+test('advanced image card replaces {{image}} with the image tag and supports boxes', async () => {
+    const f = fixture();
+    const json = JSON.stringify({state: {door: '{{image}}'}, questions: {
+        visible: {type: 'noul', instructions: 'Is there a parcel in `door`?'},
+        parcel: {type: 'box', instructions: 'the parcel in `door`'}
+    }});
+    const result = await f.card('action:image_advanced').run({droptoken, json});
+    expect(Object.keys(JSON.parse(result.answers))).toEqual(['visible', 'parcel']);
+    expect(Object.keys(f.requests[0].assets!)).toEqual(['{{image}}']);
+});
+
+test('image cards reject missing images and invalid requests before calling the API', async () => {
+    const f = fixture();
+    await expect(f.card('action:image_yes_no').run({question: 'Parcel?'})).rejects.toThrow('image tag');
+    await expect(f.card('action:image_advanced').run({droptoken, json: JSON.stringify({state: 'door', questions: {q: {type: 'noul', instructions: 'Parcel?'}}})})).rejects.toThrow('{{image}}');
+    await expect(f.card('action:image_advanced').run({droptoken, json: '{bad'})).rejects.toThrow('Invalid JSON');
+    await expect(f.card('action:image_yes_no').run({droptoken: {getStream: async () => Readable.from([Buffer.from('not an image')])}, question: 'Parcel?'})).rejects.toThrow('PNG or JPEG');
+    await expect(f.card('action:image_yes_no').run({droptoken: {getStream: async () => { throw new Error('PRIVATE URL'); }}, question: 'Parcel?'})).rejects.toThrow('could not be read');
+    expect(f.requests).toHaveLength(0);
+});
+
+test('text cards still reject box questions, which need an image', async () => {
+    const f = fixture();
+    const json = JSON.stringify({state: 'a', questions: {q: {type: 'box', instructions: 'the mug'}}});
+    await expect(f.card('action:advanced').run({json})).rejects.toThrow('Box requires an image');
 });

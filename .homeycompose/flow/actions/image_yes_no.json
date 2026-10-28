@@ -1,0 +1,249 @@
+{
+  "title": {
+    "en": "Ask a yes/no question about an image",
+    "nl": "Stel een ja/nee-vraag over een afbeelding",
+    "de": "Eine Ja/Nein-Frage zu einem Bild stellen",
+    "fr": "Poser une question oui/non sur une image",
+    "es": "Hacer una pregunta de sí/no sobre una imagen",
+    "da": "Stil et ja/nej-spørgsmål om et billede",
+    "no": "Still et ja/nei-spørsmål om et bilde",
+    "sv": "Ställ en ja/nej-fråga om en bild",
+    "it": "Poni una domanda sì/no su un’immagine",
+    "pl": "Zadaj pytanie tak/nie o obraz",
+    "ru": "Задать вопрос да/нет об изображении",
+    "ko": "이미지에 대해 예/아니요 질문하기",
+    "ar": "طرح سؤال بنعم أو لا عن صورة"
+  },
+  "titleFormatted": {
+    "en": "Ask [[question]] about [[droptoken]] with context [[state]] with minimum probability [[minimum]]",
+    "nl": "Stel [[question]] over [[droptoken]] met context [[state]] met minimale kans [[minimum]]",
+    "de": "[[question]] zu [[droptoken]] mit Kontext [[state]] und Mindestwahrscheinlichkeit [[minimum]] fragen",
+    "fr": "Poser [[question]] sur [[droptoken]] avec le contexte [[state]] et une probabilité minimale de [[minimum]]",
+    "es": "Preguntar [[question]] sobre [[droptoken]] con contexto [[state]] y probabilidad mínima [[minimum]]",
+    "da": "Stil [[question]] om [[droptoken]] med kontekst [[state]] og mindste sandsynlighed [[minimum]]",
+    "no": "Still [[question]] om [[droptoken]] med kontekst [[state]] og minste sannsynlighet [[minimum]]",
+    "sv": "Ställ [[question]] om [[droptoken]] med kontext [[state]] och minsta sannolikhet [[minimum]]",
+    "it": "Chiedi [[question]] su [[droptoken]] con contesto [[state]] e probabilità minima [[minimum]]",
+    "pl": "Zapytaj [[question]] o obraz [[droptoken]] z kontekstem [[state]] i minimalnym prawdopodobieństwem [[minimum]]",
+    "ru": "Задать [[question]] по изображению [[droptoken]] с контекстом [[state]] и минимальной вероятностью [[minimum]]",
+    "ko": "컨텍스트 [[state]]과 함께 [[droptoken]]에 대해 최소 확률 [[minimum]]으로 [[question]] 질문",
+    "ar": "اطرح [[question]] عن [[droptoken]] مع السياق [[state]] بحد أدنى للاحتمال [[minimum]]"
+  },
+  "hint": {
+    "en": "Drop an image tag, such as a camera snapshot, and ask one question about it. Context is optional text about the situation. Returns a boolean Answer tag for use in Advanced Flow. Accept yes when its probability meets the minimum, no when it is at most 1 minus the minimum. Uncertainty and API errors stop the card. Images are a TypeSafe preview feature.",
+    "nl": "Zet een afbeeldingstag neer, zoals een camerasnapshot, en stel er één vraag over. Context is optionele tekst over de situatie. Geeft een boolean-tag Antwoord terug voor gebruik in Advanced Flow. Ja bij een kans vanaf het minimum, nee bij maximaal 1 min het minimum. Twijfel en API-fouten stoppen de kaart. Afbeeldingen zijn een previewfunctie van TypeSafe.",
+    "de": "Lege ein Bild-Tag ab, etwa einen Kamera-Schnappschuss, und stelle eine Frage dazu. Kontext ist optionaler Text zur Situation. Liefert ein boolesches Antwort-Tag für Advanced Flow. Ja ab der Mindestwahrscheinlichkeit, Nein bei höchstens 1 minus diesem Wert. Unsicherheit und API-Fehler stoppen die Karte. Bilder sind eine Vorschaufunktion von TypeSafe.",
+    "fr": "Déposez un tag image, comme une capture de caméra, et posez une question à son sujet. Le contexte est un texte facultatif décrivant la situation. Renvoie un tag Réponse booléen pour Advanced Flow. Oui si la probabilité atteint le minimum, non si elle est au plus égale à 1 moins ce minimum. L’incertitude et les erreurs API arrêtent la carte. Les images sont une fonction en préversion de TypeSafe.",
+    "es": "Suelta una etiqueta de imagen, como una captura de cámara, y haz una pregunta sobre ella. El contexto es texto opcional sobre la situación. Devuelve una etiqueta Respuesta booleana para Advanced Flow. Sí cuando la probabilidad alcanza el mínimo, no cuando es como máximo 1 menos ese mínimo. La incertidumbre y los errores de API detienen la tarjeta. Las imágenes son una función en vista previa de TypeSafe.",
+    "da": "Slip et billedtag, f.eks. et kamerabillede, og stil ét spørgsmål om det. Kontekst er valgfri tekst om situationen. Returnerer et boolesk Svar-tag til Advanced Flow. Ja når sandsynligheden når minimum, nej når den højst er 1 minus minimum. Usikkerhed og API-fejl stopper kortet. Billeder er en previewfunktion i TypeSafe.",
+    "no": "Slipp en bildetagg, f.eks. et kamerabilde, og still ett spørsmål om det. Kontekst er valgfri tekst om situasjonen. Returnerer en boolsk Svar-tagg for Advanced Flow. Ja når sannsynligheten når minimum, nei når den er høyst 1 minus minimum. Usikkerhet og API-feil stopper kortet. Bilder er en forhåndsvisningsfunksjon i TypeSafe.",
+    "sv": "Släpp en bildtagg, t.ex. en kamerabild, och ställ en fråga om den. Kontext är valfri text om situationen. Returnerar en boolesk Svar-tagg för Advanced Flow. Ja när sannolikheten når minimum, nej när den är högst 1 minus minimum. Osäkerhet och API-fel stoppar kortet. Bilder är en förhandsfunktion i TypeSafe.",
+    "it": "Inserisci un tag immagine, come un’istantanea della telecamera, e poni una domanda. Il contesto è un testo facoltativo sulla situazione. Restituisce un tag Risposta booleano per Advanced Flow. Sì se la probabilità raggiunge il minimo, no se è al massimo 1 meno il minimo. Incertezza ed errori API interrompono la scheda. Le immagini sono una funzione in anteprima di TypeSafe.",
+    "pl": "Upuść znacznik obrazu, np. zdjęcie z kamery, i zadaj o nim jedno pytanie. Kontekst to opcjonalny tekst o sytuacji. Zwraca logiczny znacznik Odpowiedź do Advanced Flow. Tak, gdy prawdopodobieństwo osiąga minimum; nie, gdy wynosi najwyżej 1 minus minimum. Niepewność i błędy API zatrzymują kartę. Obrazy to funkcja testowa TypeSafe.",
+    "ru": "Перетащите тег изображения, например снимок камеры, и задайте один вопрос о нём. Контекст — необязательный текст о ситуации. Возвращает логический тег «Ответ» для Advanced Flow. Да, если вероятность достигает минимума; нет, если она не больше 1 минус минимум. Неуверенность и ошибки API останавливают карточку. Изображения — предварительная функция TypeSafe.",
+    "ko": "카메라 스냅샷 같은 이미지 태그를 놓고 그에 대해 질문 하나를 하세요. 컨텍스트는 상황을 설명하는 선택 텍스트입니다. Advanced Flow용 불리언 답변 태그를 반환합니다. 확률이 최솟값 이상이면 예, 1에서 최솟값을 뺀 값 이하이면 아니요입니다. 불확실하거나 API 오류가 발생하면 카드가 중단됩니다. 이미지는 TypeSafe의 미리 보기 기능입니다.",
+    "ar": "أفلت وسم صورة، مثل لقطة من كاميرا، واطرح سؤالًا واحدًا عنها. السياق نص اختياري يصف الموقف. يعيد وسم إجابة منطقيًا لاستخدامه في Advanced Flow. نعم عندما يبلغ الاحتمال الحد الأدنى، ولا عندما لا يتجاوز 1 ناقص الحد الأدنى. عدم اليقين وأخطاء API يوقفان البطاقة. الصور ميزة تجريبية في TypeSafe."
+  },
+  "droptoken": [
+    "image"
+  ],
+  "args": [
+    {
+      "name": "state",
+      "type": "text",
+      "required": false,
+      "title": {
+        "en": "Context (optional)",
+        "nl": "Context (optioneel)",
+        "de": "Kontext (optional)",
+        "fr": "Contexte (facultatif)",
+        "es": "Contexto (opcional)",
+        "da": "Kontekst (valgfri)",
+        "no": "Kontekst (valgfritt)",
+        "sv": "Kontext (valfritt)",
+        "it": "Contesto (facoltativo)",
+        "pl": "Kontekst (opcjonalnie)",
+        "ru": "Контекст (необязательно)",
+        "ko": "컨텍스트 (선택 사항)",
+        "ar": "السياق (اختياري)"
+      }
+    },
+    {
+      "name": "question",
+      "type": "text",
+      "title": {
+        "en": "Question",
+        "nl": "Vraag",
+        "de": "Frage",
+        "fr": "Question",
+        "es": "Pregunta",
+        "da": "Spørgsmål",
+        "no": "Spørsmål",
+        "sv": "Fråga",
+        "it": "Domanda",
+        "pl": "Pytanie",
+        "ru": "Вопрос",
+        "ko": "질문",
+        "ar": "السؤال"
+      }
+    },
+    {
+      "name": "minimum",
+      "type": "number",
+      "title": {
+        "en": "Minimum probability (0.51–1)",
+        "nl": "Minimale kans (0,51–1)",
+        "de": "Mindestwahrscheinlichkeit (0,51–1)",
+        "fr": "Probabilité minimale (0,51–1)",
+        "es": "Probabilidad mínima (0,51–1)",
+        "da": "Mindste sandsynlighed (0,51–1)",
+        "no": "Minste sannsynlighet (0,51–1)",
+        "sv": "Minsta sannolikhet (0,51–1)",
+        "it": "Probabilità minima (0,51–1)",
+        "pl": "Minimalne prawdopodobieństwo (0,51–1)",
+        "ru": "Минимальная вероятность (0,51–1)",
+        "ko": "최소 확률 (0.51–1)",
+        "ar": "الحد الأدنى للاحتمال (0.51–1)"
+      },
+      "min": 0.51,
+      "max": 1,
+      "step": 0.01,
+      "value": 0.8
+    }
+  ],
+  "tokens": [
+    {
+      "name": "answer",
+      "type": "boolean",
+      "title": {
+        "en": "Answer",
+        "nl": "Antwoord",
+        "de": "Antwort",
+        "fr": "Réponse",
+        "es": "Respuesta",
+        "da": "Svar",
+        "no": "Svar",
+        "sv": "Svar",
+        "it": "Risposta",
+        "pl": "Odpowiedź",
+        "ru": "Ответ",
+        "ko": "답변",
+        "ar": "الإجابة"
+      }
+    },
+    {
+      "name": "probability",
+      "type": "number",
+      "title": {
+        "en": "Probability of yes",
+        "nl": "Kans op ja",
+        "de": "Wahrscheinlichkeit für Ja",
+        "fr": "Probabilité de oui",
+        "es": "Probabilidad de sí",
+        "da": "Sandsynlighed for ja",
+        "no": "Sannsynlighet for ja",
+        "sv": "Sannolikhet för ja",
+        "it": "Probabilità di sì",
+        "pl": "Prawdopodobieństwo odpowiedzi tak",
+        "ru": "Вероятность ответа да",
+        "ko": "예일 확률",
+        "ar": "احتمال نعم"
+      }
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "title": {
+        "en": "Model",
+        "nl": "Model",
+        "de": "Modell",
+        "fr": "Modèle",
+        "es": "Modelo",
+        "da": "Model",
+        "no": "Modell",
+        "sv": "Modell",
+        "it": "Modello",
+        "pl": "Model",
+        "ru": "Модель",
+        "ko": "모델",
+        "ar": "النموذج"
+      }
+    },
+    {
+      "name": "input_tokens",
+      "type": "number",
+      "title": {
+        "en": "Input tokens",
+        "nl": "Inputtokens",
+        "de": "Eingabetokens",
+        "fr": "Tokens en entrée",
+        "es": "Tokens de entrada",
+        "da": "Inputtokens",
+        "no": "Inndatatokener",
+        "sv": "Indatatoken",
+        "it": "Token di input",
+        "pl": "Tokeny wejściowe",
+        "ru": "Входные токены",
+        "ko": "입력 토큰",
+        "ar": "رموز الإدخال"
+      }
+    },
+    {
+      "name": "output_tokens",
+      "type": "number",
+      "title": {
+        "en": "Output tokens",
+        "nl": "Outputtokens",
+        "de": "Ausgabetokens",
+        "fr": "Tokens en sortie",
+        "es": "Tokens de salida",
+        "da": "Outputtokens",
+        "no": "Utdatatokener",
+        "sv": "Utdatatoken",
+        "it": "Token di output",
+        "pl": "Tokeny wyjściowe",
+        "ru": "Выходные токены",
+        "ko": "출력 토큰",
+        "ar": "رموز الإخراج"
+      }
+    },
+    {
+      "name": "request_id",
+      "type": "string",
+      "title": {
+        "en": "Evaluation ID",
+        "nl": "Evaluatie-ID",
+        "de": "Auswertungs-ID",
+        "fr": "Identifiant d’évaluation",
+        "es": "ID de evaluación",
+        "da": "Vurderings-ID",
+        "no": "Vurderings-ID",
+        "sv": "Bedömnings-ID",
+        "it": "ID valutazione",
+        "pl": "ID oceny",
+        "ru": "ID оценки",
+        "ko": "평가 ID",
+        "ar": "معرّف التقييم"
+      }
+    },
+    {
+      "name": "duration_ms",
+      "type": "number",
+      "title": {
+        "en": "Duration (ms)",
+        "nl": "Duur (ms)",
+        "de": "Dauer (ms)",
+        "fr": "Durée (ms)",
+        "es": "Duración (ms)",
+        "da": "Varighed (ms)",
+        "no": "Varighet (ms)",
+        "sv": "Varaktighet (ms)",
+        "it": "Durata (ms)",
+        "pl": "Czas trwania (ms)",
+        "ru": "Длительность (мс)",
+        "ko": "소요 시간 (ms)",
+        "ar": "المدة (مللي ثانية)"
+      }
+    }
+  ]
+}

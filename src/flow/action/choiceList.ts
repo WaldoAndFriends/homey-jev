@@ -1,14 +1,13 @@
 import { action } from '@basmilius/homey-common';
-import JevAction, { type SimpleArgs, type Tokens } from '../jevAction';
+import JevAction, { type ImageArgs, type SimpleArgs, type Tokens } from '../jevAction';
 import { text } from '../../validation';
 
 /**
- * Action that picks the answer that fits the state best, out of a list of
- * answers separated by newlines.
+ * Picks the answer that fits the state or image best, out of a list of answers
+ * separated by newlines.
  */
-@action('choice_list')
-export default class extends JevAction<Args, Result> {
-    async onRun(args: Args): Promise<Result> {
+export abstract class ChoiceListAction<TArgs extends (SimpleArgs | ImageArgs) & ChoiceListArgs> extends JevAction<TArgs, Result> {
+    async onRun(args: TArgs): Promise<Result> {
         const answers = text(args.answers, 'Answer list', 64000)
             .split(/\r\n|\r|\n/)
             .map(answer => answer.trim())
@@ -23,7 +22,7 @@ export default class extends JevAction<Args, Result> {
         const validated = answers.map(answer => text(answer, 'Answer', 2000));
 
         if (new Set(validated.map(answer => answer.toLowerCase())).size !== validated.length) {
-            throw new Error('Answers must be different.');
+            throw new Error('ChoiceListArgs must be different.');
         }
 
         const criteria = Object.fromEntries(
@@ -53,7 +52,14 @@ export default class extends JevAction<Args, Result> {
     }
 }
 
-type Args = SimpleArgs & {
+/**
+ * Action that picks the answer that fits the state best, out of a list of
+ * answers separated by newlines.
+ */
+@action('choice_list')
+export default class extends ChoiceListAction<SimpleArgs & ChoiceListArgs> {}
+
+export type ChoiceListArgs = {
     readonly answers: string;
 };
 

@@ -1,14 +1,13 @@
 import { action } from '@basmilius/homey-common';
-import JevAction, { type SimpleArgs, type Tokens } from '../jevAction';
+import JevAction, { type ImageArgs, type SimpleArgs, type Tokens } from '../jevAction';
 import { text } from '../../validation';
 
 /**
- * Action that scores the state against three described levels and returns a
- * value that may fall between them.
+ * Scores the state or an image against three described levels and returns a value
+ * that may fall between them.
  */
-@action('score')
-export default class extends JevAction<Args, Result> {
-    async onRun(args: Args): Promise<Result> {
+export abstract class ScoreAction<TArgs extends (SimpleArgs | ImageArgs) & ScoreArgs> extends JevAction<TArgs, Result> {
+    async onRun(args: TArgs): Promise<Result> {
         const minimum = this.threshold(args, 'Minimum confidence');
         const criteria = [args.low, args.middle, args.high]
             .map(level => text(level, 'Level description', 2000));
@@ -36,7 +35,14 @@ export default class extends JevAction<Args, Result> {
     }
 }
 
-type Args = SimpleArgs & {
+/**
+ * Action that scores the state against three described levels and returns a
+ * value that may fall between them.
+ */
+@action('score')
+export default class extends ScoreAction<SimpleArgs & ScoreArgs> {}
+
+export type ScoreArgs = {
     readonly low: string;
     readonly middle: string;
     readonly high: string;

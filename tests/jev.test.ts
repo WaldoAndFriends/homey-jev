@@ -139,3 +139,58 @@ describe('client', () => {
         await next;
     });
 });
+
+describe('images and boxes', () => {
+    const image = {format: 'jpg' as const, data: new Uint8Array([0xff, 0xd8, 0xff, 0xd9])};
+    const imageRequest: EvaluationRequest = {
+        state: {door: 'ref-door'},
+        questions: {parcel: {type: 'box', instructions: 'the parcel in `door`'}},
+        assets: {'ref-door': image}
+    };
+    const box = {model: 'jev-1.14.0', usage: {input_tokens: 900, output_tokens: 20}, answers: {
+        parcel: {type: 'box', box: {top: 0.25, bottom: 0.82, left: 0.44, right: 0.84}, confidence: 0.92}
+    }};
+
+    test('sends images as base64 assets with the images header', async () => {
+        const client = new Jev(async (_, init) => {
+            expect((init.headers as Record<string, string>)['TypeSafe-Danger-Zone-Images']).toBe('true');
+            expect(JSON.parse(init.body as string)).toEqual({
+                model: DEFAULT_SETTINGS.model,
+                state: imageRequest.state,
+                questions: imageRequest.questions,
+                assets: {'ref-door': {type: 'image', format: 'jpg', data_base64: '/9j/2Q=='}}
+            });
+            return Response.json(box);
+        });
+        const result = await client.evaluate(imageRequest, DEFAULT_SETTINGS, 'test');
+        expect(result.answers.parcel).toEqual(box.answers.parcel);
+    });
+
+    test('omits the images header for text-only requests', async () => {
+        const client = new Jev(async (_, init) => {
+            expect((init.headers as Record<string, string>)['TypeSafe-Danger-Zone-Images']).toBeUndefined();
+            return Response.json(payload);
+        });
+        await client.evaluate(request, DEFAULT_SETTINGS, 'test');
+    });
+
+    test('rejects boxes without images, unreferenced images and assets in user JSON', () => {
+        expect(() => validateRequest({...imageRequest, assets: undefined})).toThrow('Box requires an image');
+        expect(() => parseRequest(JSON.stringify({state: 'a', questions: imageRequest.questions}))).toThrow('Box requires an image');
+        expect(() => validateRequest({...imageRequest, assets: {'other-ref': image}})).toThrow('Refer to the image');
+        // Object keys are never replaced by images, so a reference used only as a key does not count.
+        expect(() => validateRequest({...imageRequest, state: {'ref-door': 'photo'}})).toThrow('Refer to the image');
+        expect(() => parseRequest(JSON.stringify({state: 'a', questions: request.questions, assets: {}}))).toThrow('Allowed fields');
+        expect(() => validateRequest({...imageRequest, assets: {'ref-door': {format: 'gif', data: image.data}}})).toThrow('JPEG');
+        expect(() => validateRequest({...imageRequest, questions: {q: {type: 'box', instructions: 'mug', criteria: ['x']}}})).toThrow('no criteria');
+        expect(parseRequest(JSON.stringify({state: {door: '{{image}}'}, questions: imageRequest.questions}), image).assets).toEqual({'{{image}}': image});
+    });
+
+    test('rejects boxes outside the image or with crossed edges', () => {
+        expect(parseResponse(box, imageRequest).answers.parcel).toEqual(box.answers.parcel);
+        for (const edges of [{top: 0.25, bottom: 1.2, left: 0.44, right: 0.84}, {top: 0.25, bottom: 0.82, left: 0.9, right: 0.84}, {top: 0.25, bottom: 0.82, left: 0.44}]) {
+            expect(() => parseResponse({...box, answers: {parcel: {...box.answers.parcel, box: edges}}}, imageRequest)).toThrow();
+        }
+        expect(() => parseResponse({...box, answers: {parcel: {...box.answers.parcel, confidence: 1.5}}}, imageRequest)).toThrow();
+    });
+});
